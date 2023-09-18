@@ -6,21 +6,30 @@ export function Avatars() {
   const currentUser = useSelf();
 
   return (
-    <div className={styles.avatars}>
-      {users.map(({ connectionId, info }) => {
-        return (
-          <Avatar key={connectionId} picture={info.picture} name={info.name} />
-        );
-      })}
+    <div className={styles.active_user_container}>
+      <div>
+        <h3>Active users</h3>
+      </div>
+      <div className={styles.avatars}>
+        {users.map(({ connectionId, info }) => {
+          return (
+            <Avatar
+              key={connectionId}
+              picture={info.picture}
+              name={info.name}
+            />
+          );
+        })}
 
-      {currentUser && (
-        <div className="relative ml-8 first:ml-0">
-          <Avatar
-            picture={currentUser.info.picture}
-            name={currentUser.info.name}
-          />
-        </div>
-      )}
+        {currentUser && (
+          <div className="relative ml-8 first:ml-0">
+            <Avatar
+              picture={currentUser.info.picture}
+              name={currentUser.info.name}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

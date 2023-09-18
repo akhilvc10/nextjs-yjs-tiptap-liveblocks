@@ -13,6 +13,13 @@
   height: 42px;
   background-color: #9ca3af;
   margin-left: -0.75rem;
+ 
+}
+
+.active_user_container {
+  display: flex;
+  flex-direction: column;
+padding: 10px;
 }
 
 .avatar:before {
