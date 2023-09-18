@@ -14,22 +14,16 @@ const BlockNodeComponent = ({
 
   // );
 
-  const addBlock = (val) => {
-    console.log("🚀 ~ ~ val", val);
+  const addBlock = () => {
     const endPos = getPos() + node.nodeSize;
-    console.log(
-      "🚀 ~ file: BlockNodeComponent.tsx ~ line 20 ~ addBlock ~ node.nodeSize",
-      getPos()
-    );
-    console.log("🚀 ~ file: node", node);
 
-    console.log(editor.getJSON(), "editor.state()");
     editor
       .chain()
       .focus(endPos)
       .insertContent({
         type: "blockNode",
         attrs: {
+          // @ts-ignore
           blockNumber: editor.getJSON().content[0]?.content?.length - 1,
           totalNoOfBlocks: node.attrs.blockNumber + 1,
         },

@@ -76,6 +76,7 @@ function TiptapEditor({ doc, provider }: EditorProps) {
       Paragraph,
       Heading,
       Text,
+      // @ts-ignore
       History,
       SectionNode,
       BlockNode,
