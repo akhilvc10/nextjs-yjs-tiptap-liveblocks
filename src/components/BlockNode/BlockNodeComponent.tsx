@@ -16,6 +16,10 @@ const BlockNodeComponent = ({
 
   const addBlock = () => {
     const endPos = getPos() + node.nodeSize;
+    // @ts-ignore
+    const sectionId = editor.getJSON().content.length;
+    // @ts-ignore
+    const blockId = editor.getJSON().content[0]?.content?.length - 1;
     console.log("editor.getJSON()", editor.getJSON());
     editor
       .chain()
@@ -23,10 +27,7 @@ const BlockNodeComponent = ({
       .insertContent({
         type: "blockNode",
         attrs: {
-          // @ts-ignore
-          blockNumber: `${editor.getJSON().content.length}.${
-            editor.getJSON().content[0]?.content?.length - 1
-          }`,
+          blockNumber: `${sectionId}.${blockId}`,
         },
         content: [
           {
