@@ -63,6 +63,9 @@ function TiptapEditor({ doc, provider }: EditorProps) {
   // Set up editor with plugins, and place user info into Yjs awareness and cursors
   const editor = useEditor({
     editorProps: {
+      handleDrop(view, event, slice, moved) {
+        console.log("handleDrop");
+      },
       attributes: {
         // Add styles to editor element
         class: styles.editor,
@@ -81,15 +84,16 @@ function TiptapEditor({ doc, provider }: EditorProps) {
       SectionNode,
       BlockNode,
       CustomDocument,
-      // Gapcursor,
-      // Dropcursor.configure({
-      //   color: "#f0e0cc",
-      //   width: 1,
-      //   class: "drop-cursor",
-      // }),
+      Gapcursor,
+      Dropcursor.configure({
+        color: "#f0e0cc",
+        width: 1,
+        class: "drop-cursor",
+      }),
       Placeholder.configure({
         placeholder: "Start typing...",
       }),
+
       // Register the document with Tiptap
       Collaboration.configure({
         document: doc,

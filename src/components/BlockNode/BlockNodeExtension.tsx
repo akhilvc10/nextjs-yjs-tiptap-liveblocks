@@ -13,7 +13,7 @@ const BlockNode = Node.create({
   addAttributes() {
     return {
       blockNumber: {
-        default: 0,
+        default: 1.0,
       },
       totalNoOfBlocks: {
         default: 0,

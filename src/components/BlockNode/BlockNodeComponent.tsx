@@ -16,7 +16,7 @@ const BlockNodeComponent = ({
 
   const addBlock = () => {
     const endPos = getPos() + node.nodeSize;
-
+    console.log("editor.getJSON()", editor.getJSON());
     editor
       .chain()
       .focus(endPos)
@@ -24,8 +24,9 @@ const BlockNodeComponent = ({
         type: "blockNode",
         attrs: {
           // @ts-ignore
-          blockNumber: editor.getJSON().content[0]?.content?.length - 1,
-          totalNoOfBlocks: node.attrs.blockNumber + 1,
+          blockNumber: `${editor.getJSON().content.length}.${
+            editor.getJSON().content[0]?.content?.length - 1
+          }`,
         },
         content: [
           {
